@@ -91,6 +91,9 @@
             ///to download 发起下一级下载
             [plistInfo.fileInfos enumerateObjectsUsingBlock:^(BNM3U8fileInfo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 NSParameterAssert(obj.downloadUrl);
+                
+                obj.oriUrlString = [NSURL URLWithString:obj.downloadUrl relativeToURL:[NSURL URLWithString:self.config.url]].absoluteString;
+
                 BNM3U8FileDownLoadOperation *operation = [[BNM3U8FileDownLoadOperation alloc]initWithFileInfo:obj sessionManager:self.sessionManager resultBlock:^(NSError * _Nullable error, id _Nullable info) {
                     /// remove from map
                     LOCK(self.operationSemaphore);
