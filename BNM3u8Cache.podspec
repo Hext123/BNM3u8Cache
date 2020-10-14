@@ -135,6 +135,6 @@ Pod::Spec.new do |s|
 
   s.xcconfig = { "HEADER_SEARCH_PATHS" => ["${PODS_ROOT}/AFNetworking/AFNetworking","${PODS_ROOT}/GCDWebServer/GCDWebServer/Core","${SRCRoot}/Classes/m3u8/*"] }
   # s.dependency "JSONKit", "~> 1.4"
-   s.dependency "AFNetworking", "~> 3.0"
+   s.dependency "AFNetworking"
    s.dependency "GCDWebServer", "~> 3.5.3"
 end
